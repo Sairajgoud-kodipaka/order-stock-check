@@ -31,6 +31,9 @@ class ComponentStock:
 
     @property
     def available(self) -> int:
+        # Availability: quantity_on_hand - reserved_quantity; milk is in stock
+        # only when that is above 0, otherwise sold out. Subtract reserved so
+        # two customers cannot pay for the same last cup already in the queue.
         return self.quantity_on_hand - self.reserved_quantity
 
 

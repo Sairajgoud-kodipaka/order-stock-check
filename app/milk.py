@@ -2,6 +2,11 @@
 
 Rule id: on_hand_minus_reserved
 
+# Availability: a milk is available when quantity_on_hand minus
+# reserved_quantity is above 0, otherwise it is sold out.
+# Reason: reserved is already held for barista-queue orders; subtracting
+# it stops two customers paying for the same last cup.
+
 A component can go on an order only when quantity_on_hand minus
 reserved_quantity covers the quantity requested. Espresso and matcha
 drinks use 2% Milk when the customer does not choose a milk. The order
